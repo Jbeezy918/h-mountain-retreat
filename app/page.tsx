@@ -20,10 +20,11 @@ function Brand({ sky }: { sky: SkyState }) {
     <Link href="/" className="brand" aria-label="H Mountain Retreat home">
       <Image
         src={sky === "night" ? "/assets/logo-moon.png" : "/assets/logo-sun.png"}
-        alt=""
+        alt="H Mountain Retreat logo"
         className="brand-mark"
         width={58}
         height={58}
+        priority
       />
       <span>
         <strong>H Mountain</strong>
