@@ -1,11 +1,11 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 import { SiteShell } from "../page";
 
-export default function Checkout() {
+function CheckoutContent() {
   const params = useSearchParams();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -35,8 +35,7 @@ export default function Checkout() {
   }
 
   return (
-    <SiteShell>
-      <main className="inner-shell">
+    <main className="inner-shell">
         <section className="page-title">
           <Link href="/map" className="back-link">← Back to map & dates</Link>
           <p className="eyebrow light">Secure your stay</p>
@@ -65,6 +64,15 @@ export default function Checkout() {
           </div>
         </section>
       </main>
+  );
+}
+
+export default function Checkout() {
+  return (
+    <SiteShell>
+      <Suspense fallback={<div>Loading...</div>}>
+        <CheckoutContent />
+      </Suspense>
     </SiteShell>
   );
 }

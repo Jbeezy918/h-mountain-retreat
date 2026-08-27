@@ -11,12 +11,18 @@ const onSite = [
 ];
 
 const nearby = [
-  ["Horseback trails", "Old Two Toes Equestrian Trail winds nearly six miles through forest, creeks, and meadows."],
-  ["Hiking", "Choose from easy nature walks, lakeside loops, rugged mountain trails, and the historic Robbers Cave hike."],
-  ["Lakes & paddling", "Lake Carlton, Coon Creek Lake, and Wayne Wallace Reservoir offer no-wake boating and seasonal rentals."],
-  ["Swimming & fishing", "Designated swimming areas and fishing for bass, crappie, sunfish, catfish, and seasonal trout."],
+  ["Hiking & Nature Walks", "Choose from easy nature walks, lakeside loops, rugged mountain trails, and the historic Robbers Cave hike."],
+  ["Lakes & Paddling", "Lake Eufaula, Lake Carlton, and other pristine waters offer peaceful boating and seasonal rentals."],
+  ["Swimming & Fishing", "Designated swimming areas and fishing for bass, crappie, sunfish, catfish, and seasonal trout."],
   ["Birding", "Woodpeckers, hawks, warblers, and other species make the park especially rewarding during migration seasons."],
-  ["Mountain biking", "Eight miles of rugged, challenging mountain-bike trails cross the park’s rocky terrain."],
+  ["Forest Bathing", "Ancient practice of immersing yourself in nature. Walk slowly through the woods and reconnect with the earth’s healing energy."],
+  ["Meditation Trails", "Marked pathways through forest and meadow, designed for contemplative walking and mindful nature connection."],
+];
+
+const nearbyLocations = [
+  { name: "Lake Eufaula", distance: "15 miles away", type: "Water • Peaceful • Scenic" },
+  { name: "Robbers Cave State Park", distance: "25 miles away", type: "Hiking • History • Adventure" },
+  { name: "Diamond Park", distance: "30 miles away", type: "Scenic • Quiet • Nature" },
 ];
 
 export default function Amenities() {
@@ -97,56 +103,39 @@ export default function Amenities() {
         <section id="nearby" className="nearby-section">
           <div className="nearby-heading">
             <div>
-              <p className="eyebrow">Minutes from more adventure</p>
-              <h2>Make Robbers Cave part of your stay.</h2>
+              <p className="eyebrow">Nearby Healing Destinations</p>
+              <h2>Expand your wellness journey beyond H Mountain.</h2>
             </div>
             <p>
-              H Mountain is your quiet home base for a much bigger family
-              adventure in Robbers Cave country.
+              While H Mountain is your healing sanctuary on-site, these nearby natural destinations
+              extend your wellness journey. Explore them at your own pace during your stay or combine
+              them with your retreat experience for a deeper connection with nature's restorative power.
             </p>
           </div>
+
+          {/* Nearby Locations Map Section - Distance View */}
+          <div className="nearby-locations-grid">
+            {nearbyLocations.map((location, index) => (
+              <div key={location.name} className="location-card">
+                <div className="location-distance-badge">{location.distance}</div>
+                <h3>{location.name}</h3>
+                <p className="location-type">{location.type}</p>
+                <small className="location-note">Beyond H Mountain</small>
+              </div>
+            ))}
+          </div>
+
           <div className="nearby-grid">
             {nearby.map(([title, text]) => (
               <article key={title}><h3>{title}</h3><p>{text}</p></article>
             ))}
           </div>
+
           <div className="nearby-source">
-            <p>Park conditions, rentals, hours, and activity availability can change. Confirm details before your visit.</p>
+            <p>Always check current conditions, rentals, hours, and activity availability before your visit.</p>
             <a href="https://www.robberscavestatepark.com/?detailed_information=activities" target="_blank" rel="noreferrer" className="text-link">
               View Robbers Cave activities <span>↗</span>
             </a>
-          </div>
-        </section>
-
-        <section className="eufaula-feature">
-          <div
-            className="eufaula-photo"
-            role="img"
-            aria-label="Lake Eufaula in southeastern Oklahoma"
-          />
-          <div className="eufaula-copy">
-            <p className="eyebrow light">Add water to your weekend</p>
-            <h2>Make a day of it at <em>Lake Eufaula.</em></h2>
-            <p>
-              Pair a quiet stay at H Mountain with open water, wooded shoreline,
-              and a full day outside. Lake Eufaula offers boating, fishing,
-              swimming, hiking, and family-friendly recreation across the lake
-              area.
-            </p>
-            <div className="trail-points">
-              <span>Boating & fishing</span>
-              <span>Swimming areas</span>
-              <span>Trails & state parks</span>
-            </div>
-            <a
-              href="https://www.travelok.com/lake_eufaula_area"
-              target="_blank"
-              rel="noreferrer"
-              className="text-link light"
-            >
-              Explore the Lake Eufaula area <span>↗</span>
-            </a>
-            <small className="image-source">Lake photo: U.S. Army Corps of Engineers.</small>
           </div>
         </section>
 
