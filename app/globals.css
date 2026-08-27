@@ -348,9 +348,7 @@ footer a, footer span { font-size: 13px; }
 @keyframes storyFromSide { from { opacity: 0; transform: translateX(-45px); } }
 
 .events-hero {
-  align-items: flex-end; background:
-    linear-gradient(90deg, rgba(20,17,21,.67), rgba(20,17,21,.12) 66%),
-    url("/assets/woodland-wedding-v2.webp") center/cover;
+  align-items: flex-end; background: linear-gradient(135deg, var(--purple), var(--ink));
   color: white; display: flex; min-height: 760px; padding: 150px clamp(24px, 8vw, 120px) 90px;
 }
 .events-hero > div { max-width: 780px; }
