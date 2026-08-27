@@ -34,7 +34,7 @@ const frames = [
     lead: "I was looking for a place",
     emphasis: "to Build.",
     meaning: "For Healing. For Purpose.",
-    copy: "I went to look at a plot of land for sale in the area I wanted to live in. When the real estate agent took me on a tour, my mind just kept screaming, 'I need this place. The land natural healing. The land is a great place. It needs to be a place for natural healing.' So here we are, getting ready to break ground to build our H Mountains Retreat. Until we got it built. This is where we're at till we get it built.",
+    copy: "I went to look at a plot of land for sale in the area I wanted to call home. The moment the agent walked me across it, I knew — this ground wasn't meant to be a house. It was meant to be a place for healing. So we're breaking ground, building H Mountains Retreat one step at a time, and this is where we are right now.",
   },
 ];
 
