@@ -4,6 +4,9 @@ import { SiteShell } from "../page";
 const onSite = [
   ["Tea hut", "A cozy place for warm tea, slow conversation, and quiet mornings surrounded by the woods.", "Open with retreat"],
   ["Light & sound meditation", "Settle beneath soft violet-toned light with calming music in a space created for stillness and personal reflection.", "Guided experience"],
+  ["Sound healing sessions", "Guided sessions with singing bowls and gongs, using resonant sound to help you slow down, breathe, and reset.", "By appointment"],
+  ["Copper pyramid therapy", "Rest beneath a copper pyramid frame designed to support deep relaxation, better sleep, and a quiet mind.", "By appointment"],
+  ["Red-light therapy", "Targeted red and near-infrared light sessions to support recovery, circulation, and overall wellness.", "By appointment"],
   ["Woodland campsites", "Private places for tents and campers, with the night sky, tree line, and campfire close at hand.", "Reserve a site"],
   ["Walking paths", "Unhurried paths for fresh air, gentle movement, and a little time away from everything.", "Explore freely"],
   ["Gathering spaces", "Natural settings for picnics, reunions, celebrations, workshops, and meaningful group time.", "Groups welcome"],
