@@ -155,9 +155,9 @@ const amenityPins = [
 
 const experiences = [
   {
-    image: "/assets/copper-pyramid-sleep.jpg",
-    title: "Rest under copper",
-    text: "Unwind inside the copper pyramid, a quiet space made for deep rest and renewal.",
+    image: "/assets/welcome-view-v2.webp",
+    title: "Wake to the view",
+    text: "Slow mornings, mountain air, and healing spaces like the copper pyramid waiting nearby.",
     href: "/amenities",
     label: "Explore healing spaces",
   },
