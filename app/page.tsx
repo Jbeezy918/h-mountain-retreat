@@ -155,9 +155,9 @@ const amenityPins = [
 
 const experiences = [
   {
-    image: "/assets/welcome-view-v2.webp",
-    title: "Wake to the view",
-    text: "Slow mornings, mountain air, and healing spaces like the copper pyramid waiting nearby.",
+    image: "/assets/sound-healing-gong.webp",
+    title: "Reset with sound",
+    text: "Singing bowls, gongs, and resonant sound sessions that help the whole day fall away.",
     href: "/amenities",
     label: "Explore healing spaces",
   },

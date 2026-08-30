@@ -85,6 +85,43 @@ export default function Amenities() {
           ))}
         </section>
 
+        <section className="renewal healing-showcase">
+          <div className="renewal-heading">
+            <p className="eyebrow">Healing experiences</p>
+            <h2>Sound, light,<br /><em>and deep rest.</em></h2>
+          </div>
+          <div className="renewal-grid">
+            <article className="renewal-card">
+              <div
+                className="renewal-image"
+                role="img"
+                aria-label="A practitioner sounding a large gong beside crystal singing bowls in a calm sunlit room"
+                style={{ background: "url('/assets/sound-healing-gong.webp') center/cover" }}
+              />
+              <div>
+                <p className="eyebrow">Sound healing</p>
+                <h3>Singing bowls & gong sessions</h3>
+                <p>Resonant sound washes that help you slow down, breathe, and reset from the inside out.</p>
+                <small>Concept imagery — sessions offered by appointment.</small>
+              </div>
+            </article>
+            <article className="renewal-card light-card">
+              <div
+                className="renewal-image"
+                role="img"
+                aria-label="A guest resting on a spa bed beneath warm red-light therapy panels"
+                style={{ background: "url('/assets/red-light-therapy.webp') center/cover" }}
+              />
+              <div>
+                <p className="eyebrow light">Red-light therapy</p>
+                <h3>Warm light, quiet recovery</h3>
+                <p>Red and near-infrared light sessions to support recovery, circulation, and overall wellness.</p>
+                <small>A relaxation and wellness experience, not medical treatment.</small>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section className="meditation-feature">
           <div
             className="meditation-visual"

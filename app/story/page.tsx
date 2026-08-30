@@ -5,7 +5,7 @@ import { SiteShell } from "../page";
 
 const frames = [
   {
-    image: "/assets/432hz-healing.jpg",
+    image: "/assets/healing-energy-art.webp",
     eyebrow: "Healing Frequencies",
     lead: "Discover the power of",
     emphasis: "Natural Healing Energy.",
@@ -13,7 +13,7 @@ const frames = [
     copy: "432 Hz and beyond—experience the most powerful healing frequencies tuned to nature's rhythm and your body's resonance.",
   },
   {
-    image: "/assets/meditation-woman-triangle.jpg",
+    image: "/assets/sound-healing-bowls.webp",
     eyebrow: "Healing Sanctuary",
     lead: "Find your space for",
     emphasis: "Meditation & Restoration.",
@@ -21,7 +21,7 @@ const frames = [
     copy: "Copper pyramids, crystal therapy, and guided meditation create a sanctuary where your body, mind, and spirit realign.",
   },
   {
-    image: "/assets/healing-dna.jpg",
+    image: "/assets/cosmic-connection-art.webp",
     eyebrow: "Restore & Reconnect",
     lead: "Find your center",
     emphasis: "In nature's sanctuary.",
