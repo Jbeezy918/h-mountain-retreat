@@ -44,6 +44,10 @@ export default function Amenities() {
             className="amenities-hero-image"
             priority
           />
+          <p className="amenities-hero-caption">
+            Red-light therapy, sound healing, copper pyramid rest, meditation under soft
+            violet light — and woodland to walk it all off in.
+          </p>
           <div className="amenities-hero-copy">
             <p className="eyebrow light">Stay · Explore · Restore</p>
             <h1>A full retreat experience, <em>from first light to campfire.</em></h1>
@@ -86,13 +90,19 @@ export default function Amenities() {
         </section>
 
         <section className="amenity-cards">
-          <Image
-            src="/assets/sound-healing-session.webp"
-            alt="A practitioner seated on the floor playing a circle of crystal singing bowls in a sunlit room"
-            width={1280}
-            height={853}
-            className="amenities-section-image"
-          />
+          <figure className="amenities-figure">
+            <Image
+              src="/assets/sound-healing-session.webp"
+              alt="A practitioner seated on the floor playing a circle of crystal singing bowls in a sunlit room"
+              width={1280}
+              height={853}
+              className="amenities-section-image"
+            />
+            <figcaption>
+              Sound healing. Crystal bowls and gongs played close by, so the tone settles
+              your breathing before you have decided to relax. Sessions run about an hour.
+            </figcaption>
+          </figure>
           {onSite.map(([title, text, note], index) => (
             <article key={title}>
               <span className="card-number">0{index + 1}</span>

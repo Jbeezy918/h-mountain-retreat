@@ -2,13 +2,16 @@ import Image from "next/image";
 import { SiteShell } from "../page";
 import { contactEmail } from "../site-config";
 
-const events: [string, string, string, string][] = [
+const events: [string, string, string, string, string][] = [
   ["Weddings", "A natural setting for a ceremony that feels intimate, grounded, and unmistakably yours.",
-   "/assets/woodland-wedding-v2.webp", "An outdoor ceremony set among the trees at H Mountain"],
+   "/assets/woodland-wedding-v2.webp", "An outdoor ceremony set among the trees at H Mountain",
+   "Ceremonies under the tree line, with the quiet of the woods doing most of the work."],
   ["Family reunions", "Room for generations to gather, share meals, tell stories, and start new traditions.",
-   "/assets/family-reunion-v2.webp", "Several generations of a family gathered together outdoors"],
+   "/assets/family-reunion-v2.webp", "Several generations of a family gathered together outdoors",
+   "Space for everyone to spread out, share a meal, and stay a while."],
   ["Work retreats", "Bring your team away from the noise for clear thinking, deeper connection, and renewed energy.",
-   "/assets/light-canopy-rest.webp", "A quiet shaded rest area under the tree canopy"],
+   "/assets/light-canopy-rest.webp", "A quiet shaded rest area under the tree canopy",
+   "Shade, still air, and somewhere to actually think — the point of leaving the office."],
 ];
 
 export default function Events() {
@@ -23,9 +26,12 @@ export default function Events() {
           </div>
         </section>
         <section className="content-section editorial-grid event-grid">
-          {events.map(([title, text, src, alt], index) => (
+          {events.map(([title, text, src, alt, caption], index) => (
             <article key={title}>
-              <Image src={src} alt={alt} width={640} height={420} className="event-image" />
+              <figure className="event-figure">
+                <Image src={src} alt={alt} width={640} height={420} className="event-image" />
+                <figcaption>{caption}</figcaption>
+              </figure>
               <span className="card-number">0{index + 1}</span>
               <h3>{title}</h3>
               <p>{text}</p>
