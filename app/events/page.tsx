@@ -1,10 +1,14 @@
+import Image from "next/image";
 import { SiteShell } from "../page";
 import { contactEmail } from "../site-config";
 
-const events = [
-  ["Weddings", "A natural setting for a ceremony that feels intimate, grounded, and unmistakably yours."],
-  ["Family reunions", "Room for generations to gather, share meals, tell stories, and start new traditions."],
-  ["Work retreats", "Bring your team away from the noise for clear thinking, deeper connection, and renewed energy."],
+const events: [string, string, string, string][] = [
+  ["Weddings", "A natural setting for a ceremony that feels intimate, grounded, and unmistakably yours.",
+   "/assets/woodland-wedding-v2.webp", "An outdoor ceremony set among the trees at H Mountain"],
+  ["Family reunions", "Room for generations to gather, share meals, tell stories, and start new traditions.",
+   "/assets/family-reunion-v2.webp", "Several generations of a family gathered together outdoors"],
+  ["Work retreats", "Bring your team away from the noise for clear thinking, deeper connection, and renewed energy.",
+   "/assets/light-canopy-rest.webp", "A quiet shaded rest area under the tree canopy"],
 ];
 
 export default function Events() {
@@ -19,7 +23,14 @@ export default function Events() {
           </div>
         </section>
         <section className="content-section editorial-grid event-grid">
-          {events.map(([title, text], index) => <article key={title}><span className="card-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}
+          {events.map(([title, text, src, alt], index) => (
+            <article key={title}>
+              <Image src={src} alt={alt} width={640} height={420} className="event-image" />
+              <span className="card-number">0{index + 1}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
         </section>
         <section className="closing">
           <p className="eyebrow">Start the conversation</p>

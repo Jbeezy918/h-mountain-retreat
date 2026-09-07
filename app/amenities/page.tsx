@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteShell } from "../page";
 
@@ -13,9 +14,11 @@ const onSite = [
   ["Huts & camp store", "Hand-built round retreat huts and an on-site store with essentials and H Mountain goods are planned additions.", "Coming soon"],
 ];
 
-const nearby = [
-  ["Hiking & Nature Walks", "Choose from easy nature walks, lakeside loops, rugged mountain trails, and the historic Robbers Cave hike."],
-  ["Lakes & Paddling", "Lake Eufaula, Lake Carlton, and other pristine waters offer peaceful boating and seasonal rentals."],
+const nearby: [string, string, string?, string?][] = [
+  ["Hiking & Nature Walks", "Choose from easy nature walks, lakeside loops, rugged mountain trails, and the historic Robbers Cave hike.",
+   "/assets/area-trail-v2.webp", "A wooded trail winding through the area around H Mountain"],
+  ["Lakes & Paddling", "Lake Eufaula, Lake Carlton, and other pristine waters offer peaceful boating and seasonal rentals.",
+   "/assets/story-paddle-v2.webp", "Paddling on calm open water near the retreat"],
   ["Swimming & Fishing", "Designated swimming areas and fishing for bass, crappie, sunfish, catfish, and seasonal trout."],
   ["Birding", "Woodpeckers, hawks, warblers, and other species make the park especially rewarding during migration seasons."],
   ["Forest Bathing", "Ancient practice of immersing yourself in nature. Walk slowly through the woods and reconnect with the earth’s healing energy."],
@@ -33,6 +36,14 @@ export default function Amenities() {
     <SiteShell>
       <main className="inner-shell amenities-page">
         <section className="amenities-hero">
+          <Image
+            src="/assets/hero-daylight.webp"
+            alt="The H Mountain grounds in full daylight, open sky above the tree line"
+            width={1280}
+            height={720}
+            className="amenities-hero-image"
+            priority
+          />
           <div className="amenities-hero-copy">
             <p className="eyebrow light">Stay · Explore · Restore</p>
             <h1>A full retreat experience, <em>from first light to campfire.</em></h1>
@@ -166,8 +177,14 @@ export default function Amenities() {
           </div>
 
           <div className="nearby-grid">
-            {nearby.map(([title, text]) => (
-              <article key={title}><h3>{title}</h3><p>{text}</p></article>
+            {nearby.map(([title, text, src, alt]) => (
+              <article key={title}>
+                {src ? (
+                  <Image src={src} alt={alt ?? ""} width={560} height={360} className="nearby-image" />
+                ) : null}
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
             ))}
           </div>
 
