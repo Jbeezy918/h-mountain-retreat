@@ -1,22 +1,34 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SiteShell } from "../page";
 
 const onSite = [
   ["Tea hut", "A cozy place for warm tea, slow conversation, and quiet mornings surrounded by the woods.", "Open with retreat"],
   ["Light & sound meditation", "Settle beneath soft violet-toned light with calming music in a space created for stillness and personal reflection.", "Guided experience"],
+  ["Sound healing sessions", "Guided sessions with singing bowls and gongs, using resonant sound to help you slow down, breathe, and reset.", "By appointment"],
+  ["Copper pyramid therapy", "Rest beneath a copper pyramid frame designed to support deep relaxation, better sleep, and a quiet mind.", "By appointment"],
+  ["Red-light therapy", "Targeted red and near-infrared light sessions to support recovery, circulation, and overall wellness.", "By appointment"],
   ["Woodland campsites", "Private places for tents and campers, with the night sky, tree line, and campfire close at hand.", "Reserve a site"],
   ["Walking paths", "Unhurried paths for fresh air, gentle movement, and a little time away from everything.", "Explore freely"],
   ["Gathering spaces", "Natural settings for picnics, reunions, celebrations, workshops, and meaningful group time.", "Groups welcome"],
   ["Huts & camp store", "Hand-built round retreat huts and an on-site store with essentials and H Mountain goods are planned additions.", "Coming soon"],
 ];
 
-const nearby = [
-  ["Horseback trails", "Old Two Toes Equestrian Trail winds nearly six miles through forest, creeks, and meadows."],
-  ["Hiking", "Choose from easy nature walks, lakeside loops, rugged mountain trails, and the historic Robbers Cave hike."],
-  ["Lakes & paddling", "Lake Carlton, Coon Creek Lake, and Wayne Wallace Reservoir offer no-wake boating and seasonal rentals."],
-  ["Swimming & fishing", "Designated swimming areas and fishing for bass, crappie, sunfish, catfish, and seasonal trout."],
+const nearby: [string, string, string?, string?][] = [
+  ["Hiking & Nature Walks", "Choose from easy nature walks, lakeside loops, rugged mountain trails, and the historic Robbers Cave hike.",
+   "/assets/area-trail-v2.webp", "A wooded trail winding through the area around H Mountain"],
+  ["Lakes & Paddling", "Lake Eufaula, Lake Carlton, and other pristine waters offer peaceful boating and seasonal rentals.",
+   "/assets/story-paddle-v2.webp", "Paddling on calm open water near the retreat"],
+  ["Swimming & Fishing", "Designated swimming areas and fishing for bass, crappie, sunfish, catfish, and seasonal trout."],
   ["Birding", "Woodpeckers, hawks, warblers, and other species make the park especially rewarding during migration seasons."],
-  ["Mountain biking", "Eight miles of rugged, challenging mountain-bike trails cross the park’s rocky terrain."],
+  ["Forest Bathing", "Ancient practice of immersing yourself in nature. Walk slowly through the woods and reconnect with the earth’s healing energy."],
+  ["Meditation Trails", "Marked pathways through forest and meadow, designed for contemplative walking and mindful nature connection."],
+];
+
+const nearbyLocations = [
+  { name: "Lake Eufaula", distance: "15 miles away", type: "Water • Peaceful • Scenic" },
+  { name: "Robbers Cave State Park", distance: "25 miles away", type: "Hiking • History • Adventure" },
+  { name: "Diamond Park", distance: "30 miles away", type: "Scenic • Quiet • Nature" },
 ];
 
 export default function Amenities() {
@@ -24,6 +36,14 @@ export default function Amenities() {
     <SiteShell>
       <main className="inner-shell amenities-page">
         <section className="amenities-hero">
+          <Image
+            src="/assets/hero-daylight.webp"
+            alt="The H Mountain grounds in full daylight, open sky above the tree line"
+            width={1280}
+            height={720}
+            className="amenities-hero-image"
+            priority
+          />
           <div className="amenities-hero-copy">
             <p className="eyebrow light">Stay · Explore · Restore</p>
             <h1>A full retreat experience, <em>from first light to campfire.</em></h1>
@@ -66,6 +86,13 @@ export default function Amenities() {
         </section>
 
         <section className="amenity-cards">
+          <Image
+            src="/assets/sound-healing-session.webp"
+            alt="A practitioner seated on the floor playing a circle of crystal singing bowls in a sunlit room"
+            width={1280}
+            height={853}
+            className="amenities-section-image"
+          />
           {onSite.map(([title, text, note], index) => (
             <article key={title}>
               <span className="card-number">0{index + 1}</span>
@@ -74,6 +101,43 @@ export default function Amenities() {
               <p>{text}</p>
             </article>
           ))}
+        </section>
+
+        <section className="renewal healing-showcase">
+          <div className="renewal-heading">
+            <p className="eyebrow">Healing experiences</p>
+            <h2>Sound, light,<br /><em>and deep rest.</em></h2>
+          </div>
+          <div className="renewal-grid">
+            <article className="renewal-card">
+              <div
+                className="renewal-image"
+                role="img"
+                aria-label="A practitioner sounding a large gong beside crystal singing bowls in a calm sunlit room"
+                style={{ background: "url('/assets/sound-healing-gong.webp') center/cover" }}
+              />
+              <div>
+                <p className="eyebrow">Sound healing</p>
+                <h3>Singing bowls & gong sessions</h3>
+                <p>Resonant sound washes that help you slow down, breathe, and reset from the inside out.</p>
+                <small>Concept imagery — sessions offered by appointment.</small>
+              </div>
+            </article>
+            <article className="renewal-card light-card">
+              <div
+                className="renewal-image"
+                role="img"
+                aria-label="A guest resting on a spa bed beneath warm red-light therapy panels"
+                style={{ background: "url('/assets/red-light-therapy.webp') center/cover" }}
+              />
+              <div>
+                <p className="eyebrow light">Red-light therapy</p>
+                <h3>Warm light, quiet recovery</h3>
+                <p>Red and near-infrared light sessions to support recovery, circulation, and overall wellness.</p>
+                <small>A relaxation and wellness experience, not medical treatment.</small>
+              </div>
+            </article>
+          </div>
         </section>
 
         <section className="meditation-feature">
@@ -97,56 +161,45 @@ export default function Amenities() {
         <section id="nearby" className="nearby-section">
           <div className="nearby-heading">
             <div>
-              <p className="eyebrow">Minutes from more adventure</p>
-              <h2>Make Robbers Cave part of your stay.</h2>
+              <p className="eyebrow">Nearby Healing Destinations</p>
+              <h2>Expand your wellness journey beyond H Mountain.</h2>
             </div>
             <p>
-              H Mountain is your quiet home base for a much bigger family
-              adventure in Robbers Cave country.
+              While H Mountain is your healing sanctuary on-site, these nearby natural destinations
+              extend your wellness journey. Explore them at your own pace during your stay or combine
+              them with your retreat experience for a deeper connection with nature's restorative power.
             </p>
           </div>
-          <div className="nearby-grid">
-            {nearby.map(([title, text]) => (
-              <article key={title}><h3>{title}</h3><p>{text}</p></article>
+
+          {/* Nearby Locations Map Section - Distance View */}
+          <div className="nearby-locations-grid">
+            {nearbyLocations.map((location, index) => (
+              <div key={location.name} className="location-card">
+                <div className="location-distance-badge">{location.distance}</div>
+                <h3>{location.name}</h3>
+                <p className="location-type">{location.type}</p>
+                <small className="location-note">Beyond H Mountain</small>
+              </div>
             ))}
           </div>
+
+          <div className="nearby-grid">
+            {nearby.map(([title, text, src, alt]) => (
+              <article key={title}>
+                {src ? (
+                  <Image src={src} alt={alt ?? ""} width={560} height={360} className="nearby-image" />
+                ) : null}
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+
           <div className="nearby-source">
-            <p>Park conditions, rentals, hours, and activity availability can change. Confirm details before your visit.</p>
+            <p>Always check current conditions, rentals, hours, and activity availability before your visit.</p>
             <a href="https://www.robberscavestatepark.com/?detailed_information=activities" target="_blank" rel="noreferrer" className="text-link">
               View Robbers Cave activities <span>↗</span>
             </a>
-          </div>
-        </section>
-
-        <section className="eufaula-feature">
-          <div
-            className="eufaula-photo"
-            role="img"
-            aria-label="Lake Eufaula in southeastern Oklahoma"
-          />
-          <div className="eufaula-copy">
-            <p className="eyebrow light">Add water to your weekend</p>
-            <h2>Make a day of it at <em>Lake Eufaula.</em></h2>
-            <p>
-              Pair a quiet stay at H Mountain with open water, wooded shoreline,
-              and a full day outside. Lake Eufaula offers boating, fishing,
-              swimming, hiking, and family-friendly recreation across the lake
-              area.
-            </p>
-            <div className="trail-points">
-              <span>Boating & fishing</span>
-              <span>Swimming areas</span>
-              <span>Trails & state parks</span>
-            </div>
-            <a
-              href="https://www.travelok.com/lake_eufaula_area"
-              target="_blank"
-              rel="noreferrer"
-              className="text-link light"
-            >
-              Explore the Lake Eufaula area <span>↗</span>
-            </a>
-            <small className="image-source">Lake photo: U.S. Army Corps of Engineers.</small>
           </div>
         </section>
 

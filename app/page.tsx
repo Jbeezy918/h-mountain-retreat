@@ -19,11 +19,14 @@ function Brand({ sky }: { sky: SkyState }) {
   return (
     <Link href="/" className="brand" aria-label="H Mountain Retreat home">
       <Image
-        src={sky === "night" ? "/assets/logo-moon.png" : "/assets/logo-sun.png"}
-        alt=""
+        src={sky === "night" ? "/assets/logo-moon.png"
+          : sky === "day" ? "/assets/logo-sun.png"
+          : "/assets/logo-purple.png"}
+        alt="H Mountain Retreat logo"
         className="brand-mark"
         width={58}
         height={58}
+        priority
       />
       <span>
         <strong>H Mountain</strong>
@@ -112,7 +115,6 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <nav id="site-nav" className={open ? "open" : ""} aria-label="Main navigation">
           <Link href="/story">Our Story</Link>
           <Link href="/amenities">Amenities</Link>
-          <Link href="/events">Gather</Link>
           <Link href="/map">Property Map</Link>
           <Link href="/map" className="nav-cta">Book your stay</Link>
         </nav>
@@ -127,7 +129,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           <p className="eyebrow">Explore</p>
           <Link href="/map">Campsites</Link>
           <Link href="/amenities">Amenities</Link>
-          <Link href="/events">Private gatherings</Link>
+          <Link href="/story">Our story</Link>
         </div>
         <div>
           <p className="eyebrow">Plan</p>
@@ -145,13 +147,21 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+const amenityPins = [
+  { label: "Copper pyramid rest" },
+  { label: "Triangle light meditation" },
+  { label: "Sound healing space" },
+  { label: "Red-light therapy" },
+  { label: "Campsites & firepits" },
+];
+
 const experiences = [
   {
-    image: "/assets/trail-riding-card-v2.webp",
-    title: "Ride the mountain",
-    text: "Slow down, saddle up, and share a trail day through Robbers Cave country.",
-    href: "/amenities#nearby",
-    label: "Plan a trail day",
+    image: "/assets/sound-healing-gong.webp",
+    title: "Reset with sound",
+    text: "Singing bowls, gongs, and resonant sound sessions that help the whole day fall away.",
+    href: "/amenities",
+    label: "Explore healing spaces",
   },
   {
     image: "/assets/yoga-triangle-v2.webp",
@@ -176,10 +186,10 @@ export default function Home() {
         <section className="hero">
           <div className="hero-content">
             <p className="eyebrow light">A woodland sanctuary in Oklahoma</p>
-            <h1>Rest. Reconnect.<br /><em>Feel at home.</em></h1>
+            <h1>Rest. Reconnect.<br /><em>Find the you you never knew.</em></h1>
             <p>
-              Camp in the woods, gather with the people you love, and wake to a
-              mountain view in a place made for health, healing, home, and hope.
+              Camp in the woods, let the quiet find you, and wake to a mountain
+              view in a place made for health, healing, and a little hope.
             </p>
             <div className="button-row">
               <Link href="/map" className="button primary">Check availability <span>↗</span></Link>
@@ -199,7 +209,7 @@ export default function Home() {
         <section className="promise-strip" aria-label="H Mountain highlights">
           <span><strong>Peaceful & private</strong>Wooded places to slow down</span>
           <span><strong>Family friendly</strong>Space for every generation</span>
-          <span><strong>Adventure nearby</strong>Trails, lakes, horses & caves</span>
+          <span><strong>Adventure nearby</strong>Trails, lakes & caves</span>
           <span><strong>Made with heart</strong>A retreat that feels personal</span>
         </section>
 
@@ -210,9 +220,9 @@ export default function Home() {
           </div>
           <p>
             H Mountain is a peaceful retreat for campers, families, friends, and
-            groups ready to step away from the noise. Book a quiet weekend, plan
-            a reunion, or simply sit by the fire long enough to remember what
-            unhurried feels like.
+            groups ready to step away from the noise. Book a quiet weekend,
+            breathe mountain air, or simply sit by the fire long enough to
+            remember what unhurried feels like.
           </p>
         </section>
 
@@ -232,23 +242,24 @@ export default function Home() {
         </section>
 
         <section className="trail-story">
-          <div className="trail-story-image" role="img" aria-label="A family enjoying a horseback trail ride through wooded Oklahoma hills">
-            <span className="image-tag">Family adventure</span>
+          <div className="trail-story-image" role="img" aria-label="A calm lake framed by wooded Oklahoma hills near H Mountain">
+            <span className="image-tag">Our story</span>
           </div>
           <div className="trail-story-copy">
-            <p className="eyebrow light">The whole H Mountain experience</p>
-            <h2>Make the kind of memories <em>that come home with you.</em></h2>
+            <p className="eyebrow light">How H Mountain began</p>
+            <h2>This ground was always <em>meant for healing.</em></h2>
             <p>
-              Saddle up, stretch your legs on a wooded trail, cool off by the
-              lake, then come back to the fire. H Mountain is the calm home base
-              for a full family adventure.
+              I went to look at a plot of land in the place I wanted to call
+              home. The moment I walked across it, I knew this ground was not
+              meant to be a house — it was meant to be a place for healing. So
+              we are building H Mountain Retreat one step at a time.
             </p>
             <div className="trail-points">
-              <span>Horseback riding nearby</span>
-              <span>Fishing, boating & swimming</span>
-              <span>Trails for slow walks or big days</span>
+              <span>Built one step at a time</span>
+              <span>Rooted in health, healing & hope</span>
+              <span>A no-hunting promise to the land</span>
             </div>
-            <Link href="/amenities" className="text-link light">Explore every experience <span>→</span></Link>
+            <Link href="/story" className="text-link light">Read our full story <span>→</span></Link>
           </div>
         </section>
 
@@ -351,15 +362,15 @@ export default function Home() {
               <img src="https://www.swt.usace.army.mil/portals/41/siteimages/lakes/eufaula/DSC00027.jpg" alt="Sunset across Eufaula Lake in Oklahoma" />
               <div><strong>Lake Eufaula</strong><span>Fish · boat · swim</span></div>
             </a>
-            <Link href="/amenities#nearby">
+            <Link href="/map">
               <Image
-                src="/assets/area-trail-v2.webp"
-                alt="A family horseback trail ride through wooded hills"
+                src="/assets/campsite-twilight.webp"
+                alt="A quiet campsite at twilight with a glowing campfire"
                 width={900}
                 height={600}
                 sizes="(max-width: 850px) 100vw, 29vw"
               />
-              <div><strong>Trail riding</strong><span>Ride · reconnect · remember</span></div>
+              <div><strong>Back at camp</strong><span>Fire · stars · stillness</span></div>
             </Link>
           </div>
           <p className="photo-credit">
@@ -370,37 +381,30 @@ export default function Home() {
         </section>
 
         <section className="map-feature">
-          <div className="map-preview">
+          <div className="map-preview" role="img" aria-label="Property map of H Mountain with numbered amenity locations">
             <div className="map-glow" />
-            {[1, 3, 5, 7, 9].map((n, i) => (
-              <span key={n} className={`mini-pin p${i + 1}`}>{n}</span>
+            {amenityPins.map((pin, i) => (
+              <span key={pin.label} className={`mini-pin p${i + 1}`} title={pin.label} aria-hidden="true">
+                {i + 1}
+              </span>
             ))}
           </div>
           <div className="map-copy">
-            <p className="eyebrow light">Explore & book</p>
-            <h2>Choose the spot that <em>feels right.</em></h2>
+            <p className="eyebrow light">Amenities map</p>
+            <h2>Every healing space, <em>all on one mountain.</em></h2>
             <p>
-              Pick a numbered campsite, open its full monthly calendar, see
-              reserved dates, choose your stay, and continue without bouncing
-              through a pile of disconnected pages.
+              See where each experience lives on the property, then pick the
+              campsite that puts you closest to the ones you love.
             </p>
+            <ol className="amenity-legend">
+              {amenityPins.map((pin, i) => (
+                <li key={pin.label}><b aria-hidden="true">{i + 1}</b>{pin.label}</li>
+              ))}
+            </ol>
             <div className="map-actions">
               <Link href="/map" className="button primary">Open map & calendar <span>↗</span></Link>
+              <Link href="/amenities" className="button ghost">Explore amenities</Link>
             </div>
-          </div>
-        </section>
-
-        <section className="gather">
-          <div className="gather-image" role="img" aria-label="Family gathering together outdoors at H Mountain" />
-          <div className="gather-copy">
-            <p className="eyebrow">Gather at H Mountain</p>
-            <h2>Make room for <em>moments that matter.</em></h2>
-            <p>
-              From family reunions and weddings to work retreats and special
-              gatherings, H Mountain is built for connection, celebration, and
-              experiences that feel personal.
-            </p>
-            <Link href="/events" className="button dark">Explore gatherings <span>↗</span></Link>
           </div>
         </section>
 
