@@ -525,3 +525,13 @@ i.available { background: #788a6a; } i.selected-key { background: #694d81; } i.b
   margin-bottom: 2rem;
   display: block;
 }
+
+.amenities-section-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 2rem;
+  display: block;
+}

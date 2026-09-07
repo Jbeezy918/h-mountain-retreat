@@ -86,6 +86,13 @@ export default function Amenities() {
         </section>
 
         <section className="amenity-cards">
+          <Image
+            src="/assets/sound-healing-session.webp"
+            alt="A practitioner seated on the floor playing a circle of crystal singing bowls in a sunlit room"
+            width={1280}
+            height={853}
+            className="amenities-section-image"
+          />
           {onSite.map(([title, text, note], index) => (
             <article key={title}>
               <span className="card-number">0{index + 1}</span>
