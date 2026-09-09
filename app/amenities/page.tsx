@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SiteShell } from "../page";
+import AreaMap from "../components/AreaMap";
 
 const onSite = [
   ["Tea hut", "A cozy place for warm tea, slow conversation, and quiet mornings surrounded by the woods.", "Open with retreat"],
@@ -182,6 +183,8 @@ export default function Amenities() {
           </div>
 
           {/* Nearby Locations Map Section - Distance View */}
+          <AreaMap />
+
           <div className="nearby-locations-grid">
             {nearbyLocations.map((location, index) => (
               <div key={location.name} className="location-card">
